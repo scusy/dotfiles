@@ -1,1 +1,0 @@
-/home/johannes/convinient-dots/zshrc

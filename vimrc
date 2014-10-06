@@ -53,6 +53,10 @@ endif
 set list
 set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 set showbreak=↪
+" dont need recovery-> user version control
+set nobackup
+set nowritebackup
+set noswapfile
 
 set autoindent
 set autoread

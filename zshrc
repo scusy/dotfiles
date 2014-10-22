@@ -54,7 +54,7 @@ alias g='gvim --servername default --remote-silent '
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="$HOME/application:$PATH"
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
-if [ "$TMUX" = "" ]; then tmux attach; fi
+if [ "$TMUX" = "" ]; then tmux -2 attach; fi
 svnrm() {
     svn rm `svn status |grep "^\!"|awk '{print $2})`
 }

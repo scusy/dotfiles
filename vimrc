@@ -3,7 +3,7 @@ if has('vim_starting')
 set nocompatible               
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
@@ -21,12 +21,12 @@ NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'scusy/vim-colors'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'Lokaltog/vim-easymotion'
+call neobundle#end()
+
 filetype plugin indent on
 NeoBundleCheck
 
 
-" Friendly Cat :)
-echom " (>^.^<) "
 " Config {{{1 
 let s:is_windows = has('win16') || has('win32') || has('win64')
 let s:is_cygwin = has('win32unix')
@@ -50,9 +50,6 @@ if has("wildmenu")
     set wildignore+=*~,*.swp,*.tmp
 endif
 
-set list
-set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
-set showbreak=↪
 " dont need recovery-> user version control
 set nobackup
 set nowritebackup
@@ -119,7 +116,7 @@ endif
 " Colorscheme {{{1
 set t_Co=256
 set background=dark
-colorscheme  3dglasses
+colorscheme badwolf 
 highlight clear SignColumn
 
 " Filetype||Html {{{1

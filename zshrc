@@ -46,7 +46,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64"
-export TERM='xterm-256color'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias rmsvndir='find . -name .svn -exec rm -rf {} \;'

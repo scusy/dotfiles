@@ -6,7 +6,10 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
-
+export CVPWL_ROOT="${HOME}/.cvpwl"
+if [ -d "${CVPWL_ROOT}" ]; then
+    export PATH="${CVPWL_ROOT}/bin:${PATH}"
+fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"

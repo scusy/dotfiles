@@ -66,4 +66,5 @@ svnadd() {
 }
 #alias svndiff = vim `(svn status .|grep "^C"|awk '{print $2}')`
 
-
+# Load LSCOLORS
+eval "$(dircolors -b ~/.dircolors)"

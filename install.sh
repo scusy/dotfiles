@@ -8,7 +8,7 @@ rm .vimrc
 rm .tmux.conf
 rm .dircolors
 curl -L http://install.ohmyz.sh | sh
-git clone https://github.com/scusy/convinient-dots .cdots
+git clone https://github.com/scusy/dotfiles .cdots
 ln -s  .cdots/vimrc .vimrc
 ln -s  .cdots/vim .vim
 ln -s  .cdots/tmux.conf .tmux.conf

@@ -4,7 +4,7 @@ convinient-dots
 Default configuration for unix work environment:
 
 ```ruby
-curl https://raw.githubusercontent.com/scusy/convinient-dots/master/install.sh | sh
+curl https://raw.githubusercontent.com/scusy/dotfiles/master/install.sh | sh
 ```
 
 gnome-terminal

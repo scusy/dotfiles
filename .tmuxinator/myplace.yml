@@ -1,0 +1,8 @@
+name: myplace
+root: ~/heroku_apps/current/myplace/
+
+windows:
+  - vim: vim 
+  - server: bundle exec jekyll s
+  - guard: bundle exec guard
+  - chrome: google-chrome http://localhost:4000

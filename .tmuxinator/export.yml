@@ -1,0 +1,13 @@
+# ~/.tmuxinator/export.yml
+
+name: export
+root: ~/data/versioning/export
+tmux_options: -2
+
+windows:
+  - wildfly: "~/applications/wildfly-8.2.0.Final/bin/standalone.sh"
+  - export-web: "~/data/versioning/EXPORT/branches/standalone/export-web"
+  - export-datamodel: "cd ~/data/versioning/EXPORT/branches/standalone/export-model"
+  - webapp: "cd ~/data/versioning/EXPORT/trunk/EXPORT/EXPORT/src/Web-Layer"
+  - chrome: "cd ~/data/versioning/EXPORT/trunk/EXPORT/EXPORT/src/Web-Layer"
+

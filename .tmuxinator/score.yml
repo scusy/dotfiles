@@ -1,0 +1,8 @@
+# ~/.tmuxinator/score.yml
+tmux_options: -2
+name: score
+root: ~/data/versioning/serene/branches/score/score_projectmanagement/
+windows:
+  - editor: vim
+  - server: bundle exec rails s
+  - logs: tail -f log/development.log

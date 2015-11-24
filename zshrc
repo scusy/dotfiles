@@ -10,9 +10,22 @@ export CVPWL_ROOT="${HOME}/.cvpwl"
 if [ -d "${CVPWL_ROOT}" ]; then
     export PATH="${CVPWL_ROOT}/bin:${PATH}"
 fi
+export RBENV_ROOT="${HOME}/.rbenv"
+
+if [ -d "${RBENV_ROOT}" ]; then
+  export PATH="${RBENV_ROOT}/bin:${PATH}"
+  eval "$(rbenv init -)"
+fi
+export SCALA_HOME=~/bin/scala-2.10.4
+export PATH=$SCALA_HOME/bin:$PATH
+export EDITOR=vim
+# Forge
+export FORGE_HOME=~/applications/forge
+export PATH=$PATH:$FORGE_HOME/bin
+export FZF_COMPLETION_TRIGGER='***'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+ alias ohmyzsh="vim ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -35,6 +48,11 @@ fi
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
+v() {
+    local file
+      file=$(fzf-tmux --query="$1" --select-1 --exit-0)
+        [ -n "$file" ] && vim --servername "default" --remote-silent "$file"
+      }
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
 # much faster.
@@ -43,28 +61,33 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git history)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64"
+export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
 alias pbcopy='xclip -selection clipboard'
+alias rm=trash
 alias pbpaste='xclip -selection clipboard -o'
+alias ssh_linda='ssh linda.iwi.uni-sb.de -p 22022'
 alias rmsvndir='find . -name .svn -exec rm -rf {} \;'
-alias g='gvim --servername default --remote-silent '
+alias g='gvim --servername "default" --remote-silent '
+alias tmux='tmux -2'
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="$HOME/application:$PATH"
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
-if [ "$TMUX" = "" ]; then tmux -2 attach; fi
 svnrm() {
-    svn rm `svn status |grep "^\!"|awk '{print $2})`
+    svn rm `svn status |grep "^\!"|awk '{print $2})'`
 }
 svnadd() {
     svn add `svn status |grep "^?"|awk '{print $2}'`
 }
 #alias svndiff = vim `(svn status .|grep "^C"|awk '{print $2}')`
-
+# Disable float control
+stty -ixon
 # Load LSCOLORS
 eval "$(dircolors -b ~/.dircolors)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+

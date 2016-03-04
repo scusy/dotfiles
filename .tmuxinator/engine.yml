@@ -1,0 +1,12 @@
+name: engine
+root: ~/data/versioning/SERENE/trunk/serene/Engine
+
+tmux_options: -2
+windows:
+  - vim:
+      layout: d154,194x48,0,0{135x48,0,0,0,58x48,136,0,3}
+      panes:
+        - tree -I "target" . > tree && v tree
+        - sbt "~test"
+  - sbt: alias cdr="cd $(pwd)"
+  - shell: alias cdr="cd $(pwd)"

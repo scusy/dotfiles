@@ -1,4 +1,9 @@
 # Path to your oh-my-zsh configuration.
+
+# Private folder
+alias privateMount='encfs /home/johannes/Dropbox/encryptedStuff /home/johannes/private'
+alias privateUMount='fusermount -u ~/private'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -23,6 +28,7 @@ export EDITOR=vim
 export FORGE_HOME=~/applications/forge
 export PATH=$PATH:$FORGE_HOME/bin
 export FZF_COMPLETION_TRIGGER='***'
+export FZF_DEFAULT_COMMAND='ag -g "" '
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
  alias ohmyzsh="vim ~/.oh-my-zsh"
@@ -47,12 +53,49 @@ export FZF_COMPLETION_TRIGGER='***'
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
+#FZF
+fda() {
+  local dir
+  dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
+}
+___private_vi(){
+  if [ "$TMUX" != "" ]; 
+  then
+    local x
+    x=0
+    x=`tmux list-windows| awk 'match($2,/vim*/) {print 1}'`
+    if [ "$x" = 1 ];
+    then
+      tmux select-window -t vim
+    else 
+      tmux new-window -n vim
+    fi 
+    x=`tmux display-message -p '#S'`
+    local y
+    y=0
+    y=`vim --serverlist|grep -i $x`
+    if [[ ! "$y" =~ [^[:space:]] ]]; 
+    then
+    vim -c "call ServerVimSettings()" --servername $x $@
 
-v() {
+    else
+    vim -c "call ServerVimSettings()" --servername $x --remote-silent $@
+    fi
+
+
+  fi
+}
+
+___private_v() {
     local file
       file=$(fzf-tmux --query="$1" --select-1 --exit-0)
-        [ -n "$file" ] && vim --servername "default" --remote-silent "$file"
+        [ -n "$file" ] && ___private_vi "$file"
       }
+fd() {
+   local file
+   local dir
+   file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
+}
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
 # much faster.
@@ -62,9 +105,7 @@ v() {
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git history)
-
 source $ZSH/oh-my-zsh.sh
-
 # Customize to your needs...
 export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
 alias pbcopy='xclip -selection clipboard'
@@ -74,6 +115,9 @@ alias ssh_linda='ssh linda.iwi.uni-sb.de -p 22022'
 alias rmsvndir='find . -name .svn -exec rm -rf {} \;'
 alias g='gvim --servername "default" --remote-silent '
 alias tmux='tmux -2'
+alias v=___private_vi
+alias fv=___private_v
+alias cdr= cd $projectRootDir
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="$HOME/application:$PATH"
@@ -84,10 +128,12 @@ svnrm() {
 svnadd() {
     svn add `svn status |grep "^?"|awk '{print $2}'`
 }
+sereneDocker(){
+  make -f ~/data/versioning/SERENE/trunk/docker/Makefile "$*";
+}
 #alias svndiff = vim `(svn status .|grep "^C"|awk '{print $2}')`
 # Disable float control
 stty -ixon
 # Load LSCOLORS
 eval "$(dircolors -b ~/.dircolors)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-

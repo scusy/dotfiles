@@ -1,0 +1,9 @@
+name: sample
+root: ~/data/versioning/SERENE/trunk/sampleProjects/
+
+tmux_options: -2
+windows:
+  - vim: 
+    - v
+  - sbt:
+  - shell: alias cdr="cd $(pwd)"

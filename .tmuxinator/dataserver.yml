@@ -1,6 +1,6 @@
-# ~/.tmuxinator/serene.yml
+# ~/.tmuxinator/dataserver.yml
 
-name: serene
+name: dataserver
 root: ~/data/versioning/SERENE/trunk/
 
 # Optional tmux socket
@@ -13,7 +13,7 @@ root: ~/data/versioning/SERENE/trunk/
 # pre_window: rbenv shell 2.0.0-p247
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
-tmux_options: -2
+# tmux_options: -f ~/.tmux.mac.conf
 
 # Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
 # tmux_command: byobu
@@ -22,7 +22,9 @@ tmux_options: -2
 # startup_window: logs
 
 windows:
-  - vim: 
-  - docker:
-    - "cd docker"
-
+  - trunk:
+  - docker: cd docker
+  - dataserver: cd ./serene/DataServer
+  - wildfly: cd docker
+  - elastic: cd docker
+  - mysql: cd docker

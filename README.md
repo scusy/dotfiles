@@ -14,7 +14,14 @@ Install
 
 ```ruby
 # Install zsh, tmuxinator
-sudo apt-get install zsh tmuxinator
+sudo apt-get install zsh
+# Install rbenv
+curl https://raw.githubusercontent.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
+# Install ruby
+rbenv install 2.1.4
+rbenv global 2.1.4
+# Install tmuxinator
+gem install tmuxinator
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 # Install dots

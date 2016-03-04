@@ -281,6 +281,7 @@ command!  Nutrition :e ~/.nutrition.md
 " Vimfiler {{{1
 let g:vimfiler_as_default_explorer=1
 let g:vimfiler_no_default_key_mappings=1
+		let g:vimfiler_ignore_pattern = ['^\.git$', '^\target$']
 augroup MyAutoCmd
 autocmd!
 autocmd FileType vimfiler call s:vimfiler_my_settings()

@@ -13,8 +13,10 @@ Install
 -------
 
 ```ruby
-# Install zsh, tmuxinator
+# Install zsh
 sudo apt-get install zsh
+# Change shell to zsh
+chsh -s /bin/zsh
 # Install rbenv
 curl https://raw.githubusercontent.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
 # Install ruby

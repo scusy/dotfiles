@@ -34,7 +34,6 @@ sudo ln -s /usr/include/luajit-2.0 /usr/include/lua5.1/include
 cd ~
 git clone https://github.com/vim/vim.git
 cd vim/src
-make distclean
 ./configure --with-features=huge \
             --enable-rubyinterp \
             --enable-largefile \

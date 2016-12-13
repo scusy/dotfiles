@@ -1,7 +1,7 @@
 # ~/.tmuxinator/serene.yml
 
-name: serene
-root: ~/data/versioning/gitlab/serene-core
+name: sereneapi
+root: ~/data/versioning/serene/trunk/serene-src/serene-api/
 
 # Optional tmux socket
 # socket_name: foo
@@ -23,5 +23,5 @@ tmux_options: -2
 
 windows:
   - vim: 
-  - shell:
+  - shell: 
 

@@ -1,0 +1,11 @@
+# ~/.tmuxinator/mlpipe-config.yml
+
+name: iwi_docker
+root: /home/johannes/data/versioning/gitlab-iwi/serene/docker
+
+tmux_options: -2
+pre_window: alias cdr="cd $(pwd)"
+windows:
+  - vim: 
+    - v 
+  - shell:

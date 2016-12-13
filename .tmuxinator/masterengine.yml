@@ -1,0 +1,10 @@
+name: masterengine
+root: ~/data/versioning/gitlab/johannes-master/engine
+
+tmux_options: -2
+windows:
+  - vim: 
+    - v 
+  - shell:
+    - alias cdr="cd $(pwd)"
+  - sbt:

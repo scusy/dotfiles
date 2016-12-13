@@ -1,0 +1,12 @@
+# ~/.tmuxinator/mlpipe-utils.yml
+
+name: mlpipe-utils
+root: ~/data/versioning/gitlab/johannes-master/mlpipe/utils
+
+tmux_options: -2
+windows:
+  - vim: 
+    - v 
+  - shell:
+    - alias cdr="cd $(pwd)"
+  - sbt:

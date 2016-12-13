@@ -1,0 +1,14 @@
+
+
+# ~/.tmuxinator/mlpipe-config.yml
+
+name: JoesPlayground
+root: ~/data/versioning/github/JoesPlayground/JoesPlayground
+
+tmux_options: -2
+pre_window: alias cdr="cd $(pwd)"
+windows:
+  - vim: 
+    - v 
+  - shell:
+  - rails: rails s

@@ -1,11 +1,16 @@
 # Path to your oh-my-zsh configuration.
 
 # Private folder
-alias privateMount='encfs /home/johannes/Dropbox/encryptedStuff /home/johannes/private'
-alias privateUMount='fusermount -u ~/private'
+alias privateMount='cryfs /home/johannes/Dropbox/.encryptedPrivate /home/johannes/.private'
+alias privateUMount='fusermount -u ~/.private'
+alias rmm='java -jar ~/scripts/rmm.jar '
+
+alias iwiMount='cryfs /home/johannes/Dropbox/.IWiPromotion /home/johannes/IWiPromotion'
+alias iwiUMount='fusermount -u ~/IWiPromotion'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 ZSH=$HOME/.oh-my-zsh
 
+alias mux=tmuxinator
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -21,9 +26,12 @@ if [ -d "${RBENV_ROOT}" ]; then
   export PATH="${RBENV_ROOT}/bin:${PATH}"
   eval "$(rbenv init -)"
 fi
+export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=512M"
 export SCALA_HOME=~/bin/scala-2.10.4
 export PATH=$SCALA_HOME/bin:$PATH
 export EDITOR=vim
+# Activator
+export PATH=~/applications/activator-dist-1.3.10/bin:$PATH
 # Forge
 export FORGE_HOME=~/applications/forge
 export PATH=$PATH:$FORGE_HOME/bin
@@ -32,7 +40,7 @@ export FZF_DEFAULT_COMMAND='ag -g "" '
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
  alias ohmyzsh="vim ~/.oh-my-zsh"
-
+ ~/.cdots/xmodmap.sh
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 

@@ -1,5 +1,5 @@
-name: docker
-root: ~/data/versioning/gitlab/serene-core/docker
+name: master
+root: ~/data/versioning/gitlab/JohannesLahann
 
 tmux_options: -2
 windows:

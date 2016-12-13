@@ -15,7 +15,7 @@ alias mux=tmuxinator
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="maran"
 export CVPWL_ROOT="${HOME}/.cvpwl"
 if [ -d "${CVPWL_ROOT}" ]; then
     export PATH="${CVPWL_ROOT}/bin:${PATH}"

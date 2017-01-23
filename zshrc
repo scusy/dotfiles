@@ -11,6 +11,14 @@ alias iwiUMount='fusermount -u ~/IWiPromotion'
 ZSH=$HOME/.oh-my-zsh
 
 alias mux=tmuxinator
+
+#anaconda python environment
+export PATH=/home/johannes/anaconda3/bin:$PATH
+
+#Android SDK
+export ANDROID_HOME=/home/johannes/applications/android
+export PATH=${PATH}:~/applications/android/platform-tools:/applications/android/tools
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each

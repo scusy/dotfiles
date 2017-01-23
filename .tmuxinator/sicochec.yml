@@ -1,0 +1,15 @@
+# ~/.tmuxinator/mlpipe-data.yml
+
+name: sicochec
+root: ~/data/versioning/gitlab-iwi/SiCoChec/MobileApp
+
+tmux_options: -2
+windows:
+  - vim: 
+    - v 
+  - shell:
+    - alias cdr="cd $(pwd)"
+  - gulp:
+    - gulp
+  - phonegap:
+

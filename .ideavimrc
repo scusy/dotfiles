@@ -1,0 +1,73 @@
+let mapleader = ','
+
+set number
+set mouse=a
+set incsearch hlsearch
+set ignorecase smartcase
+set clipboard=unnamed
+set scrolloff=5
+set showmode
+set surround
+
+inoremap jk <Esc>
+vnoremap jk <Esc>
+
+noremap  <c-f> <c-d>
+noremap  <c-b> <c-u>
+" VimMotionJump{Next,Previous}
+nnoremap <c-p> <c-i>
+nnoremap <c-[> <c-t>
+nnoremap <tab> <c-w>w
+
+nnoremap Y y$
+nnoremap Q @q
+
+nnoremap [c :action VcsShowPrevChangeMarker<cr>
+nnoremap ]c :action VcsShowNextChangeMarker<cr>
+
+nnoremap gcc :action CommentByLineComment<cr>
+vn gc :action CommentByLineComment<cr>
+nnoremap <leader>fu :action FindUsages<cr>
+nnoremap <leader>su :action ShowUsages<cr>
+nnoremap <leader>cv :action ChangeView<cr>
+nnoremap <leader>bb :action ToggleLineBreakpoint<cr>
+nnoremap <leader>br :action ViewBreakpoints<cr>
+nnoremap <leader>ic :action InspectCode<cr>
+nnoremap <leader>fi :action OptimizeImports<cr>
+nnoremap <leader>re :action RenameElement<cr>
+nnoremap <leader>rf :action RenameFile<cr>
+nnoremap <leader>mv :action ActivateMavenProjectsToolWindow<cr>
+nnoremap <leader>dc :action ChooseDebugConfiguration<cr>
+nnoremap <leader>rc :action ChooseRunConfiguration<cr>
+nnoremap <leader>q  :action CloseActiveTab<cr>
+nnoremap <leader>tl Vy<cr>:action ActivateTerminalToolWindow<cr>
+vnoremap <leader>tl y<cr>:action ActivateTerminalToolWindow<cr>
+nnoremap ]e :action GotoNextError<cr>
+nnoremap [e :action GotoPreviousError<cr>
+
+
+
+" Reload .ideavimrc
+nnoremap <leader>sv :source ~/.ideavimrc<CR>
+
+
+" Goto Commands {{{1
+" =======================================================================
+
+nnoremap <leader>gi :action GotoImplementation<cr>
+nnoremap <leader>gs :action GotoSuperMethod<cr>
+nnoremap <leader>gd :action GotoDeclaration<cr>
+nnoremap <leader>gt :action GotoTest<cr>
+nnoremap <leader>gc :action GotoClass<CR>
+nnoremap <leader>gf :action GotoFile<CR>
+nnoremap <leader>gr :action RecentFiles<CR>
+
+nnoremap / :action Find<CR>
+nnoremap n :action FindNext<CR>
+nnoremap N :action FindPrevious<CR>
+nnoremap U :action $Redo<CR>
+nnoremap <leader>d :action CloseContent<CR>
+
+
+nnoremap <leader>k :action FileStructurePopup<CR>
+nnoremap <leader>h :action QuickJavaDoc<CR>

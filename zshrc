@@ -48,8 +48,6 @@ export FZF_DEFAULT_COMMAND='ag -g "" '
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
  alias ohmyzsh="vim ~/.oh-my-zsh"
- alias vim=nvim
- ~/.xmodmap.sh
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
